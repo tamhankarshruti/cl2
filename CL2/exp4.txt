@@ -1,0 +1,50 @@
+# Import required libraries
+import cirq  #for designing & simulating quantum circuits.
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define a single qubit
+qubit = cirq.LineQubit(0) #one qubit placed on a “line”
+
+# Each time the function runs, it returns one random Clifford gate type.
+def random_clifford():
+    return np.random.choice([cirq.X, cirq.Y, cirq.Z, cirq.H, cirq.S, cirq.I])
+
+# Function to create a randomized benchmarking sequence
+def rb_sequence(length):
+    circuit = cirq.Circuit()  #Creates an empty quantum circuit.
+    for _ in range(length):  #builds a random sequence of gates
+        gate = random_clifford()(qubit)
+        circuit.append(gate)
+
+    # Add the inverse of all gates to ideally return back to its original state |0⟩.
+    inverse = cirq.inverse(circuit)
+    circuit.append(inverse)
+    circuit.append(cirq.measure(qubit, key='m'))  #Adds a measurement to record the final state, measurement is labeled with key 'm'.
+    return circuit
+
+# Parameters
+sequence_lengths = [1, 2, 4, 8, 16, 32]  # RB sequence lengths
+shots = 1024   #Number of repetitions for probability accuracy
+fidelities = []   #List to store results (how well the qubit returns to |0⟩).
+
+# Simulator
+simulator = cirq.Simulator()
+
+# Run RB sequences
+for L in sequence_lengths:
+    circuit = rb_sequence(L)   #Builds a random Clifford circuit
+    result = simulator.run(circuit, repetitions=shots)
+    counts = result.histogram(key='m')  #Returns how many times the qubit measured as 0 or 1.
+    fidelity = counts.get(0, 0) / shots  # Probability of returning to |0>
+    fidelities.append(fidelity)    #Stores fidelity for each sequence length
+
+# Plot the decay
+plt.plot(sequence_lengths, fidelities, 'o-', label='RB decay')
+plt.xlabel('Sequence length')
+plt.ylabel('Fidelity (probability of |0>)')
+plt.title('Randomized Benchmarking')
+plt.grid(True)
+plt.legend()
+plt.show()
+

@@ -1,0 +1,111 @@
+1. Definition
+
+A User Persona is a fictional representation of an ideal or target user of a product, system, or service.
+It is based on user research, data, and behavior patterns collected from real users.
+Personas help designers, developers, and product managers understand the users’ needs, goals, challenges, and motivations, enabling user-centered design.
+
+2. Purpose of User Persona
+
+Creating user personas helps to:
+
+Understand who the users are and what they need.
+
+Focus on user-centered decision-making throughout product development.
+
+Align the design and functionality of the system with user expectations.
+
+Communicate user needs clearly to the entire project team.
+
+3. Key Components of a User Persona
+
+A standard user persona generally includes the following:
+
+Component	Description
+Persona Name	A fictional yet realistic name to humanize the user.
+Demographics	Age, gender, education, occupation, location, etc.
+Background	User’s life context, experience level, and environment.
+Goals	What the user aims to achieve using the system or product.
+Needs and Motivations	What drives the user to use the product.
+Pain Points	Problems or frustrations faced by the user.
+Behavior Patterns	How and when the user interacts with the system.
+Technology Usage	Devices, tools, or apps the user is familiar with.
+Quotes or Statements	Realistic quotes representing user attitude.
+4. Types of User Personas
+
+There are mainly three types:
+
+Primary Persona – The main target audience for the system.
+
+Secondary Persona – Users with additional needs but not the main focus.
+
+Negative Persona – People who are not target users (helps avoid design drift).
+
+5. Steps to Create a User Persona
+
+Conduct Research
+
+Interviews, surveys, and observations.
+
+Gather quantitative and qualitative data.
+
+Identify Patterns and Trends
+
+Group users by common behaviors, goals, and needs.
+
+Create Persona Profiles
+
+Develop detailed fictional characters.
+
+Validate Personas
+
+Review with team and stakeholders to ensure accuracy.
+
+Use Personas Throughout Development
+
+Refer to them in design, testing, and product updates.
+
+6. Benefits of Designing User Personas
+
+Promotes empathy and better understanding of the end user.
+
+Supports effective communication within the design team.
+
+Enhances user experience (UX) and usability.
+
+Helps prioritize features and functionalities that users value most.
+
+
+Persona 1: The Busy Professional
+
+Name: Riya Sharma
+Age: 27
+Occupation: Software Engineer
+Location: Pune, Maharashtra
+Income Level: ₹60,000/month
+
+Goals:
+
+To quickly order food during office hours or after work.
+
+To discover new restaurants nearby with good ratings.
+
+Motivations:
+
+Convenience and time-saving.
+
+Access to multiple cuisines without leaving home.
+
+Pain Points:
+
+Long delivery times during peak hours.
+
+Inconsistent food quality from new restaurants.
+
+Behavior:
+
+Uses the app 4–5 times a week.
+
+Prefers online payments and tracking live delivery status.
+
+Quote:
+"I want my food hot and on time — without wasting my break waiting for it."

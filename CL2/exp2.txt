@@ -1,0 +1,35 @@
+# Import required libraries
+from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
+from qiskit.visualization import plot_histogram
+
+# Step 1: Initialize the quantum and classical registers
+num_qubits = 16
+qc = QuantumCircuit(num_qubits, num_qubits)
+
+# Step 2 & 3: Apply Hadamard gate to all qubits
+for q in range(num_qubits):
+    qc.h(q)
+
+# Step 4: Measure all qubits
+qc.measure(range(num_qubits), range(num_qubits))
+#measures each qubit and stores the result in the corresponding classical bit
+
+# Use AerSimulator
+simulator = AerSimulator()
+
+# Transpile and run the circuit
+compiled_circuit = transpile(qc, simulator)
+#transpilation helps reduce noise by optimizing the circuit layout and gate count
+job = simulator.run(compiled_circuit, shots=10)  # 'shots' is how many times you generate random numbers
+result = job.result()
+
+# Get counts (random outputs)
+counts = result.get_counts()
+print("Tackle Noise with Error Correction (binary strings with 16 bits):")
+for output in counts:
+    print(output)
+
+# Optional: Plot histogram
+plot_histogram(counts)
+

@@ -1,0 +1,35 @@
+# working_qft.py
+from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, transpile
+from qiskit.circuit.library import QFTGate
+from qiskit_aer import AerSimulator
+from qiskit.visualization import plot_histogram
+
+backend = AerSimulator()
+
+# build circuit
+q = QuantumRegister(5, 'q')
+c = ClassicalRegister(5, 'c')
+qc = QuantumCircuit(q, c)
+
+# set initial state |10101> by applying Pauli-X (NOT) gates to qubits
+qc.x(q[4])
+qc.x(q[2])
+qc.x(q[0])
+
+# QFTGate(5) is a single composite gate that implements the Quantum Fourier Transform for 5 qubits.
+qc.append(QFTGate(5), q)
+qc.measure(q, c)
+
+# IMPORTANT: transpile so composite gates are converted to Aer-basis gates
+qc_t = transpile(qc, backend)
+print(qc_t)
+qc_t.draw('mpl', filename='qft_decomposed.png')
+# run
+job = backend.run(qc_t, shots=1000)
+result = job.result()
+counts = result.get_counts()
+print("Counts:", counts)
+plot_histogram(counts).show()
+
+
+
