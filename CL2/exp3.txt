@@ -41,3 +41,14 @@ plt.show()
 #creating entanglement, and performing Bell measurement. The results (c₀,c₁) from Alice’s measurement would normally 
 #guide Bob’s correction operations to reconstruct the original state on q₂. 
 #Here, the structure and logic of teleportation are implemented, but correction gates can be added for full accuracy.
+
+#######
+Step	Operation	Meaning
+H on q₀	Creates	+⟩ = (
+H on q₁	Prepares part of Bell pair between q₁ and q₂.	
+CNOT (q₁→q₂)	Entangles Alice’s and Bob’s qubits (q₁,q₂). They now share an entangled Bell state.	
+CNOT (q₀→q₁)	Begins Bell measurement between Alice’s two qubits (q₀,q₁).	
+H on q₀	Completes Bell basis measurement.	
+Measurements M on q₀ and q₁	Collapses Alice’s qubits into classical bits (c₀,c₁).	
+Barrier	Visually separates Alice’s part from Bob’s.	
+Measurement M on q₂	Reads Bob’s qubit to check what state he got.
