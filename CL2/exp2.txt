@@ -33,3 +33,5 @@ for output in counts:
 # Optional: Plot histogram
 plot_histogram(counts)
 
+#“I tackled noise using error mitigation techniques, such as optimized circuit transpilation and measurement error correction. 
+#These steps help reduce hardware noise and improve the accuracy of the quantum random outputs, which acts as a form of error correction.
